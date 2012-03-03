@@ -359,7 +359,7 @@ try_routing_request(Lb_pid, Parsed_url,
             Err
     end;
 try_routing_request(_, _, _, _, _, _, _, _, _, _, _) ->
-    {error, retry_later}.
+    {error, try_count_exceeded}.
 
 merge_options(Host, Port, Options) ->
     Config_options = get_config_value({options, Host, Port}, []) ++
